@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/14 05:20:34 by camurill          #+#    #+#             */
-/*   Updated: 2024/03/08 14:12:10 by camurill         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:41:29 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # include <stdlib.h>
 # include <ctype.h>
 # include <locale.h>
+# include "ft_printf/ft_printf.h"
+# include "get_next_line/get_next_line.h"
 
 //Funtions First Part
 

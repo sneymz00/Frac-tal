@@ -5,7 +5,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-# include "Libreries/libft/libft.h"
+//# include "Libreries/libft/libft.h"
 # include "Libreries/minilibx/mlx.h"
 
 # define ERROR_MESSAGE "Please enter \n\t\"./fractal mandelbrot\" or \n\t\"./fractal julia <value_1> <value_2>\"\n"
@@ -80,20 +80,23 @@ typedef struct s_fractal
 	t_img	img;
 	//Hooks member vatiables
 	double	escape_value; //Hypotenuse
+	int		iterations_defintion; //value that we use to render img(speed)
 
 }				t_fractal;
 
 // FUNCTIONS 
-
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_putstr_fd(char *s, int fd);
+//****INIT****
 void	*fractal_init(t_fractal *fractal);
-void	malloc_error(void);
+
+//***RENDER***
+void	fractal_render(t_fractal *fractal);
 
 // MATHS
-
-double  map(double unscaled num, double new_min, double new_max, double old_min, double old_max);
+double  	map(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
 t_complex   sum_complex(t_complex z1, t_complex z2);
-t_complex   square_complex(t_complex z)
+t_complex   square_complex(t_complex z);
 
 
 #endif
-

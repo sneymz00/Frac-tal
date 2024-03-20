@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   math_fractal.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: camurill <camurill@student.42barcel>       +#+  +:+       +#+        */
+/*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:43:23 by camurill          #+#    #+#             */
-/*   Updated: 2024/03/14 16:35:04 by camurill         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:36:51 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 double	map(double u_num, double n_min, double n_max, double o_min, double o_max)
 {
-	return (n_max - n_min) * (u_num - old_min) / (old_max - old_min) + new_min;
+	return (n_max - n_min) * (u_num - o_min) / (o_max - o_min) + n_min;
 }
 
 //SUM COMPLEX

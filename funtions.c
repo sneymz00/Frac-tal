@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   funtions.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/20 18:01:52 by camurill          #+#    #+#             */
-/*   Updated: 2024/03/20 18:38:44 by camurill         ###   ########.fr       */
+/*   Created: 2024/03/20 18:00:14 by camurill          #+#    #+#             */
+/*   Updated: 2024/03/20 18:36:46 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int main(int ac, char **av)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_fractal	fractal;
+	size_t	i;
 
-	if (2 == ac && !ft_strncmp(av[1], "mandelbrot", 10)|| 4 == ac && !ft_strncmp(av[1], "julia", 5))
+	i = 0;
+	if  (NULL == s1 || NULL == s2 || n <= 0)
+		return (0);
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
 	{
-		fractal.name = av[1];
-		//TL;DR
-		fractal_init(&fractal);
-		//Second
-		fractal_render(&fractal);
-		//third
-		mlx_loop(fractal.mlx_connection);
+		if (s1[i] != s2[i])
+			return ((unsigned char)(s1[i]) - (unsigned char)(s2[i]));
+		i++;
 	}
-	else
+	return (0);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	int	i;
+
+	i = 0;
+	if (NULL == s || fd < 0)
+		return ;
+	while (s[i])
 	{
-		ft_putstr_fd(ERROR_MESSAGE, STDERR_FILENO);
-		exit(EXIT_FAILURE);
+		ft_putchar_fd(s[i], fd);
+		i++;
 	}
 }

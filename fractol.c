@@ -6,13 +6,14 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:35:00 by camurill          #+#    #+#             */
-/*   Updated: 2024/03/14 16:52:44 by camurill         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:36:44 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
+
 //If malloc goes bad
-void	malloc_error(void)
+static void	malloc_error(void)
 {
 	perror("Problems with malloc");
 	exit(EXIT_FAILURE);
@@ -21,6 +22,8 @@ void	malloc_error(void)
 void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4; // 2 *2 hypotenuse
+	fractal->iterations_defintion = 42;
+}
 
 void	*fractal_init(t_fractal *fractal)
 {

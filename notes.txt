@@ -5,3 +5,5 @@ para poder corregir errores de compilacion.
 
 
 Estudiar compilador y libreria mlx
+
+Corregir mlx_destroy_display

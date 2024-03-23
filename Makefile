@@ -1,4 +1,4 @@
-EXEC 		= 		fractol
+NAME 		= 		fractol
 RM 			= 		rm -f
 
 ###############################################################################
@@ -6,15 +6,15 @@ RM 			= 		rm -f
 ###############################################################################
 
 CC 		= 		gcc
-CCFLAGS	= 		-Wall -Wextra -Werror -02
-LDFLAGS = 		-L./Libreries/ft_printf -ft_printf -L./Libreries/libft -libft \
+CCFLAGS	= 		-Wall -Wextra -Werror
+#LDFLAGS = 		-L./Libreries/ft_printf -ft_printf -L./Libreries/libft -libft \
 			    -L./Libreries/minilibx -minilibx -lm
 
 ###############################################################################
 #									SRC										  #
 ###############################################################################
 
-SRC 	= 		main.c fractal.c
+SRC 	= 		main.c fractol.c funtions.c squeare_fractol.c math_fractal.c
 
 OBJ 	= 		$(SRC:.c=.o)
 
@@ -28,21 +28,19 @@ OBJ 	= 		$(SRC:.c=.o)
 #									INLUDES									  #
 ###############################################################################
 
-include makefile.mk
-
 
 
 ###############################################################################
 #									RULES									  #
 ###############################################################################
 
-all: $(EXEC)
+all: $(NAME)
 
-$(EXEC): $(OBJ)
-	$(CC) $(CCFLAGS) $(OBJ) -o $(EXEC) $(LDFLAGS)
+$(NAME): $(OBJ)
+	${CC} ${CCFLAGS} -framework OpenGL -framework AppKit ${OBJ} libmlx.a -o ${NAME}
 
 %.o: %.c Makefile
-	$(CC) $(CCFLAGS) -c -o $@ $<
+	$(CC) $(CCFLAGS) -MMD -Imlx -c $<
 
 clean:
 	$(RM) $(OBJ) $(BONUSOBJ)

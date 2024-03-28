@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:36:04 by camurill          #+#    #+#             */
-/*   Updated: 2024/03/20 18:36:48 by camurill         ###   ########.fr       */
+/*   Updated: 2024/03/28 16:05:28 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void my_pixel_put(int x, int y, t_img *img, int color)
  *	z initilly  is (0,0)
  *	c is the actual point
  */
+
 
 static void	handle_pixel(int x, int y, t_fractal *fractal)
 {
@@ -62,7 +63,7 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 		i++;
 	}
 	//If MANDELBORT given itearations made
-	my_pixel_put(x, y, &fractal->img, LIME_SHOCK);
+	my_pixel_put(x, y, &fractal->img, HOT_PINK);
 }
 /*
  * 
@@ -85,7 +86,7 @@ void	fractal_render(t_fractal *fractal)
 		}
 		y++;
 	}
-	mlx_pixel_image_to_window(fractal->mlx_connection,
+	mlx_put_image_to_window(fractal->mlx_connection,
 							  fractal->mlx_window,
 							  fractal->img.img_ptr,
 							  0, 0);

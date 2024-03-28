@@ -14,9 +14,10 @@ CCFLAGS	= 		-Wall -Wextra -Werror
 #									SRC										  #
 ###############################################################################
 
-SRC 	= 		main.c fractol.c funtions.c squeare_fractol.c math_fractal.c
+SRC 	= 	main.c fractol.c funtions.c squeare_fractol.c math_fractal.c #first.c 
 
 OBJ 	= 		$(SRC:.c=.o)
+OBJ2 	= 		$(SRC:.c=.d)
 
 ###############################################################################
 #						          SRC BONUS			   						  #
@@ -37,16 +38,16 @@ OBJ 	= 		$(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	${CC} ${CCFLAGS} -framework OpenGL -framework AppKit ${OBJ} libmlx.a -o ${NAME}
+	$(CC) $(CCFLAGS) -framework OpenGL -framework AppKit $(OBJ) libmlx.a -o $(NAME)
 
 %.o: %.c Makefile
-	$(CC) $(CCFLAGS) -MMD -Imlx -c $<
+	$(CC) $(CCFLAGS) -MMD -Imlx -c $< -o $@
 
 clean:
 	$(RM) $(OBJ) $(BONUSOBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) $(OBJ2)
 
 re: fclean all
 

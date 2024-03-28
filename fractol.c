@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:35:00 by camurill          #+#    #+#             */
-/*   Updated: 2024/03/23 18:43:59 by camurill         ###   ########.fr       */
+/*   Updated: 2024/03/28 15:16:08 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	data_init(t_fractal *fractal)
 	fractal->iterations_defintion = 42;
 }
 
+/***INIT***/
+
 void	*fractal_init(t_fractal *fractal)
 {
 	//MLX stuff
@@ -37,7 +39,7 @@ void	*fractal_init(t_fractal *fractal)
 										fractal->name);
 	if (NULL == fractal->mlx_window)
 	{
-		mlx_destroy_display(fractal->mlx_connection);
+		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
 		free(fractal->mlx_connection);
 		malloc_error();
 	}
@@ -46,7 +48,7 @@ void	*fractal_init(t_fractal *fractal)
 	if (NULL == fractal->img.img_ptr)
 	{
 		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
-		mlx_destroy_display(fractal->mlx_connection);
+		//mlx_destroy_display(fractal->mlx_connection);
 		free(fractal->mlx_connection);
 		malloc_error();
 	}
@@ -54,6 +56,6 @@ void	*fractal_init(t_fractal *fractal)
 												&fractal->img.bpp,
 												&fractal->img.line_len,
 												&fractal->img.endian);
-
+	data_init(fractal);
 	return (0);
 }

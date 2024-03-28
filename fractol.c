@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:35:00 by camurill          #+#    #+#             */
-/*   Updated: 2024/03/28 15:16:08 by camurill         ###   ########.fr       */
+/*   Updated: 2024/03/28 17:40:26 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	malloc_error(void)
 void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4; // 2 *2 hypotenuse
-	fractal->iterations_defintion = 42;
+	fractal->iterations_defintion = 100;
 }
 
 /***INIT***/

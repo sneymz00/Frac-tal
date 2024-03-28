@@ -7,3 +7,5 @@ para poder corregir errores de compilacion.
 Estudiar compilador y libreria mlx
 
 Corregir mlx_destroy_display
+
+Hemos corregido los problemas de MAKE, ahora hay que renderizar el programa para que se mueva y se amplie con + -, y que hay que adaptarlo para JULIA.

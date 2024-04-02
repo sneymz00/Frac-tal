@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:36:04 by camurill          #+#    #+#             */
-/*   Updated: 2024/03/28 16:05:28 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/02 20:00:56 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ static void my_pixel_put(int x, int y, t_img *img, int color)
 
 	offset =  (y * img->line_len) + (x * (img->bpp / 8));
 	*(unsigned int *)(img->pixels_ptr + offset) =  color;
+}
+
+static void	choice_matrix(t_complex *z, t_complex *c,t_fractal *fractal)
+{
+	if (!ft_strncmp(fractal->name, "julia", 5))
+	{
+		c->x = fractal->julia_x;
+		c->y = fractal->julia_y;
+	}
+	else
+	{
+		c->x = z->x;
+		c->x = z->y;
+	}
 }
 
 /*
@@ -42,14 +56,14 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	// First
-	z.x = 0.0;
-	z.y = 0.0;
-
+	//z.x = 0.0;
+	//z.y = 0.0;
 	//pixdouble  map(double unscaled num, double new_min, double new_max, double old_min, double old_max)el coordinate and scale
-	c.x = map(x, -2, +2, 0, WIDTH);
-	c.y = map(y, +2, -2, 0, HEIGHT);
-
+	z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom)+ fractal->shift_x;
+	z.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom)+ fractal->shift_y;
+	//select base
+	choice_matrix(&z, &c, fractal);
+	//operations
 	while (i < fractal->iterations_defintion)
 	{
 		z = sum_complex(square_complex(z), c);

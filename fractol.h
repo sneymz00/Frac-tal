@@ -63,6 +63,38 @@ typedef struct s_img
 #define ELECTRIC_BLUE   0x0066FF  // A radiant blue
 #define LAVA_RED        0xFF3300  // A bright, molten red
 
+/*
+ *  KEYBOARS 
+*/
+
+#define KEY_ESC 53
+#define KEY_SHIFT 257
+#define KEY_A 0
+#define KEY_S 1
+#define KEY_D 2
+#define KEY_W 13
+#define KEY_Q 12
+#define KEY_E 14
+#define KEY_UP 126
+#define KEY_DOWN 125
+#define KEY_LEFT 123
+#define KEY_RIGHT 124
+#define KEY_1 18
+#define KEY_2 19
+#define KEY_PLUS 69
+#define KEY_MINUS 78
+#define KEY_EQUAL 24
+#define KEY_HYPHEN 27
+
+/*
+ * MOUSE  
+*/
+
+#define C_RIGHT 1
+#define C_LEFT 2
+#define C_CENTER 3
+#define M_UP 5
+#define M_DOWN 4
 
 /*
  *FRACTAL ID
@@ -81,12 +113,18 @@ typedef struct s_fractal
 	//Hooks member vatiables
 	double	escape_value; //Hypotenuse
 	int		iterations_defintion; //value that we use to render img(speed)
+	double	shift_x;
+	double	shift_y;
+	double	zoom;
+	double	julia_x;
+	double	julia_y;
 
 }				t_fractal;
 
 // FUNCTIONS 
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_putstr_fd(char *s, int fd);
+double	ft_dbatoi(char *str);
 //****INIT****
 void	*fractal_init(t_fractal *fractal);
 
@@ -98,5 +136,12 @@ double  	map(double unscaled_num, double new_min, double new_max, double old_min
 t_complex   sum_complex(t_complex z1, t_complex z2);
 t_complex   square_complex(t_complex z);
 
+//EVENTS
+void	events_init(t_fractal *fractal);
+int 	key_handler(int key, t_fractal *fractal);
+int		mouse_handler(int button, int x, int y, t_fractal *fractal);
+
+//CLEAN
+int		close_funtion(t_fractal *fractal);
 
 #endif

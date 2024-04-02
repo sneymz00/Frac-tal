@@ -6,7 +6,7 @@ RM 			= 		rm -f
 ###############################################################################
 
 CC 		= 		gcc
-CCFLAGS	= 		-Wall -Wextra -Werror
+CCFLAGS	= 		#-Wall -Wextra -Werror
 #LDFLAGS = 		-L./Libreries/ft_printf -ft_printf -L./Libreries/libft -libft \
 			    -L./Libreries/minilibx -minilibx -lm
 
@@ -14,7 +14,7 @@ CCFLAGS	= 		-Wall -Wextra -Werror
 #									SRC										  #
 ###############################################################################
 
-SRC 	= 	main.c fractol.c funtions.c squeare_fractol.c math_fractal.c #first.c 
+SRC 	= 	main.c fractol.c funtions.c squeare_fractol.c math_fractal.c events.c #first.c 
 
 OBJ 	= 		$(SRC:.c=.o)
 OBJ2 	= 		$(SRC:.c=.d)

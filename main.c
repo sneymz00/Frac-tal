@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:01:52 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/02 20:06:44 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/02 20:37:50 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ int main(int ac, char **av)
 	if ((2 == ac && !ft_strncmp(av[1], "mandelbrot", 10)) || (4 == ac && !ft_strncmp(av[1], "julia", 5)))
 	{
 		fractal.name = av[1];
-		fractal.julia_x = ft_dbatoi(av[2]);
-		fractal.julia_y = ft_dbatoi(av[3]);
+		if (!ft_strncmp(fractal.name, "julia", 5))
+		{
+			fractal.julia_x = ft_dbatoi(av[2]);
+			fractal.julia_y = ft_dbatoi(av[3]);
+		}
 		//TL;DR
 		fractal_init(&fractal);
 		//Second
 		fractal_render(&fractal);
-		events_init(&fractal);
 		//third
 		mlx_loop(fractal.mlx_connection);
 	}

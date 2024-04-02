@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:36:04 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/02 20:00:56 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/02 20:39:55 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void my_pixel_put(int x, int y, t_img *img, int color)
 	*(unsigned int *)(img->pixels_ptr + offset) =  color;
 }
 
-static void	choice_matrix(t_complex *z, t_complex *c,t_fractal *fractal)
+static void	choice_matrix(t_complex *z, t_complex *c, t_fractal *fractal)
 {
 	if (!ft_strncmp(fractal->name, "julia", 5))
 	{

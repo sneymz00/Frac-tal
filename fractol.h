@@ -140,6 +140,7 @@ t_complex   square_complex(t_complex z);
 void	events_init(t_fractal *fractal);
 int 	key_handler(int key, t_fractal *fractal);
 int		mouse_handler(int button, int x, int y, t_fractal *fractal);
+int		track_julia(int x, int y, t_fractal *fractal);
 
 //CLEAN
 int		close_funtion(t_fractal *fractal);

@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:43:23 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/02 20:27:21 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:17:37 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ t_complex	square_complex(t_complex z)
 	t_complex	final;
 
 	final.x = (z.x * z.x) - (z.y * z.y);
-	final.y = 2 * z.x * z.y;
+	final.y = -2 * z.x * z.y;
 	return (final);
 }

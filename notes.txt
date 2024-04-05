@@ -8,4 +8,9 @@ Estudiar compilador y libreria mlx
 
 Corregir mlx_destroy_display
 
-Hemos corregido los problemas de MAKE, ahora hay que renderizar el programa para que se mueva y se amplie con + -, y que hay que adaptarlo para JULIA.
+Hemos corregido los problemas de MAKE, ahora hay que renderizar el programa para que se mueva y se amplie con + -, y que hay que adaptarlo para JULIA.\
+
+
+
+Nuevo fractol Tricorn, solo hay que añadir en y = -2
+

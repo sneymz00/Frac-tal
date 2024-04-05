@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:35:00 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/02 20:51:27 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:02:28 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	events_init(t_fractal *fractal)
 			4, 0, mouse_handler, fractal);	
 	mlx_hook(fractal->mlx_window,
 			17, 0, close_funtion, fractal);
-	mlx_hook(fractal->mlx_window,
-			6, 0, track_julia, fractal);	
+	/*mlx_hook(fractal->mlx_window,
+			6, 0, track_julia, fractal);*/
 }
 
 /***INIT***/

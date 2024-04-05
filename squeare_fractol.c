@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:36:04 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/02 20:39:55 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:17:03 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void my_pixel_put(int x, int y, t_img *img, int color)
 
 static void	choice_matrix(t_complex *z, t_complex *c, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
+	if (!ft_strncmp(fractal->name, "julia", 6))
 	{
 		c->x = fractal->julia_x;
 		c->y = fractal->julia_y;
@@ -34,7 +34,9 @@ static void	choice_matrix(t_complex *z, t_complex *c, t_fractal *fractal)
 	else
 	{
 		c->x = z->x;
-		c->x = z->y;
+		c->y = z->y;
+		z->x = 0.0;
+		z->y = 0.0;
 	}
 }
 
@@ -56,6 +58,7 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
+	//if ()
 	//z.x = 0.0;
 	//z.y = 0.0;
 	//pixdouble  map(double unscaled num, double new_min, double new_max, double old_min, double old_max)el coordinate and scale

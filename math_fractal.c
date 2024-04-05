@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:43:23 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/05 14:17:37 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:26:20 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,14 @@ t_complex	sum_complex(t_complex z1, t_complex z2)
 // real = (x^2 + y^2)
 // i = 2*x*y
 
-t_complex	square_complex(t_complex z)
+t_complex	square_complex(t_complex z, t_fractal *fractal)
 {
 	t_complex	final;
 
 	final.x = (z.x * z.x) - (z.y * z.y);
-	final.y = -2 * z.x * z.y;
+	if (!ft_strncmp(fractal->name, "tricorn", 8))
+		final.y = -2 * z.x * z.y;
+	else
+		final.y = 2 * z.x * z.y;
 	return (final);
 }

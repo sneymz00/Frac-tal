@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:36:04 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/05 14:17:03 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/05 14:26:10 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	//operations
 	while (i < fractal->iterations_defintion)
 	{
-		z = sum_complex(square_complex(z), c);
+		z = sum_complex(square_complex(z, fractal), c);
 		// if hypotenuse > 2
 		if ((z.x*z.x) + (z.y*z.y) > fractal->escape_value)
 		{

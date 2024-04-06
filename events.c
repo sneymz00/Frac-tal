@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:52:34 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/05 14:07:09 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/06 19:26:16 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int  key_handler(int key, t_fractal *fractal)
 
 int mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
-
 	if (button == M_DOWN)
 		fractal->zoom *= 1.05;
 	else if (button == M_UP)
@@ -64,13 +63,12 @@ int mouse_handler(int button, int x, int y, t_fractal *fractal)
 	return (0);
 }
 
+//int mouse_event(int )
+
 int	track_julia(int x, int y, t_fractal *fractal)
 {
-	if (!ft_strncmp(fractal->name, "julia", 5))
-	{
-		fractal->julia_x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom)+ fractal->shift_x;
-		fractal->julia_y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom)+ fractal->shift_y;
-		fractal_render(fractal);
-	}
+	fractal->julia_x = (map(x, -2, 2, 0, WIDTH) * fractal->zoom)+ fractal->shift_x;
+	fractal->julia_y = (map(y, 2, -2, 0, HEIGHT) * fractal->zoom)+ fractal->shift_y;
+	fractal_render(fractal);
 	return (0);
 }

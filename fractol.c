@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:35:00 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/05 14:02:28 by camurill         ###   ########.fr       */
+/*   Updated: 2024/04/06 19:23:55 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	malloc_error(void)
 static void	data_init(t_fractal *fractal)
 {
 	fractal->escape_value = 4; // 2 *2 hypotenuse
-	fractal->iterations_defintion = 100;
+	fractal->iterations_defintion = 42;
 	fractal->shift_x = 0.0;
 	fractal->shift_y = 0.0;
 	fractal->zoom = 1.0;
@@ -36,8 +36,9 @@ void	events_init(t_fractal *fractal)
 			4, 0, mouse_handler, fractal);	
 	mlx_hook(fractal->mlx_window,
 			17, 0, close_funtion, fractal);
-	/*mlx_hook(fractal->mlx_window,
-			6, 0, track_julia, fractal);*/
+	mlx_hook(fractal->mlx_window,
+			6, 0, track_julia, fractal);/*
+	mlx_mouse_hook(fractal->mlx_window, )*/
 }
 
 /***INIT***/

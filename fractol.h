@@ -8,7 +8,7 @@
 //# include "Libreries/libft/libft.h"
 # include "Libreries/minilibx/mlx.h"
 
-# define ERROR_MESSAGE "Please enter \n\t\"./fractal mandelbrot\" or \n\t\"./fractal julia <value_1> <value_2>\"\n"
+# define ERROR_MESSAGE "Please enter \n\t\"./fractal mandelbrot\"  \n\t\"./fractal julia <value_1> <value_2>\"  \n\t\"./fractal tricorn\"\n"
 /*
 * We use a squeare to
 * keep the rendering math simple

@@ -40,7 +40,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CCFLAGS) -framework OpenGL -framework AppKit $(OBJ) libmlx.a -o $(NAME)
 
-%.o: %.c Makefile
+%.o: %.c Makefile fractol.h
 	$(CC) $(CCFLAGS) -MMD -Imlx -c $< -o $@
 
 clean:

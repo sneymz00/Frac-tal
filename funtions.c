@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:00:14 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/02 20:52:05 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/17 14:22:22 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	if  (NULL == s1 || NULL == s2 || n <= 0)
+	if (NULL == s1 || NULL == s2 || n <= 0)
 		return (0);
 	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
 	{
@@ -61,7 +61,7 @@ double	ft_dbatoi(char *str)
 			value *= -1;
 		str++;
 	}
-	while (*str != '.'  && *str)
+	while (*str != '.' && *str)
 	{
 		number = (number * 10) + (*str - '0');
 		str++;
@@ -72,7 +72,7 @@ double	ft_dbatoi(char *str)
 	{
 		dec /= 10;
 		decimal = decimal + (*str - '0') * dec;
-		str++; 
+		str++;
 	}
 	return ((number + decimal) * value);
 }

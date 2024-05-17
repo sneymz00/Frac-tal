@@ -44,6 +44,18 @@ typedef struct s_img
 }				t_img;
 
 /*
+* Estructure First s_data
+*
+*/
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+/*
  *COLORS
  */
 

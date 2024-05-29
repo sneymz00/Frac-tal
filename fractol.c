@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 16:35:00 by camurill          #+#    #+#             */
-/*   Updated: 2024/05/17 14:21:31 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/29 22:13:25 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	events_init(t_fractal *fractal)
 	mlx_hook(fractal->mlx_window, 2, 0, key_handler, fractal);
 	mlx_hook(fractal->mlx_window, 4, 0, mouse_handler, fractal);
 	mlx_hook(fractal->mlx_window, 17, 0, close_funtion, fractal);
-	mlx_hook(fractal->mlx_window, 6, 0, track_julia, fractal);
 }
 
+//mlx_hook(fractal->mlx_window, 6, 0, track_julia, fractal); Curiosity
 /***INIT***/
 static void	fractal_conditions(t_fractal *fractal)
 {
@@ -59,7 +59,7 @@ static void	fractal_conditions(t_fractal *fractal)
 	}
 }
 
-void	*fractal_init(t_fractal *fractal)
+void	fractal_init(t_fractal *fractal)
 {
 	fractal_conditions(fractal);
 	fractal->img.pixels_ptr = mlx_get_data_addr(fractal->img.img_ptr,
@@ -68,5 +68,4 @@ void	*fractal_init(t_fractal *fractal)
 			&fractal->img.endian);
 	events_init(fractal);
 	data_init(fractal);
-	return (0);
 }

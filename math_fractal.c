@@ -6,15 +6,15 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:43:23 by camurill          #+#    #+#             */
-/*   Updated: 2024/05/17 14:25:28 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/28 12:33:01 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-double	map(double u_n, double n_min, double n_max, double o_min, double o_max)
+double	map(double u_n, double n_min, double n_max, double o_max)
 {
-	return ((n_max - n_min) * (u_n - o_min) / (o_max - o_min) + n_min);
+	return ((n_max - n_min) * (u_n - 0) / (o_max - 0) + n_min);
 }
 
 //SUM COMPLEX

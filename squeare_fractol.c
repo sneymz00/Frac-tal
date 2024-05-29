@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:36:04 by camurill          #+#    #+#             */
-/*   Updated: 2024/04/05 14:26:10 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/28 13:09:24 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
  * Put a pixel in my image buffer 
 */
 
-static void my_pixel_put(int x, int y, t_img *img, int color)
+static void	my_pixel_put(int x, int y, t_img *img, int color)
 {
-	int offset;
+	int	offset;
 
-	offset =  (y * img->line_len) + (x * (img->bpp / 8));
-	*(unsigned int *)(img->pixels_ptr + offset) =  color;
+	offset = (y * img->line_len) + (x * (img->bpp / 8));
+	*(unsigned int *)(img->pixels_ptr + offset) = color;
 }
 
 static void	choice_matrix(t_complex *z, t_complex *c, t_fractal *fractal)
@@ -49,7 +49,6 @@ static void	choice_matrix(t_complex *z, t_complex *c, t_fractal *fractal)
  *	c is the actual point
  */
 
-
 static void	handle_pixel(int x, int y, t_fractal *fractal)
 {
 	t_complex	z;
@@ -58,28 +57,20 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 	int			color;
 
 	i = 0;
-	//if ()
-	//z.x = 0.0;
-	//z.y = 0.0;
-	//pixdouble  map(double unscaled num, double new_min, double new_max, double old_min, double old_max)el coordinate and scale
-	z.x = (map(x, -2, +2, 0, WIDTH) * fractal->zoom)+ fractal->shift_x;
-	z.y = (map(y, +2, -2, 0, HEIGHT) * fractal->zoom)+ fractal->shift_y;
-	//select base
+	z.x = (map(x, -2, +2, WIDTH) * fractal->zoom) + fractal->shift_x;
+	z.y = (map(y, +2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	choice_matrix(&z, &c, fractal);
-	//operations
 	while (i < fractal->iterations_defintion)
 	{
 		z = sum_complex(square_complex(z, fractal), c);
-		// if hypotenuse > 2
-		if ((z.x*z.x) + (z.y*z.y) > fractal->escape_value)
+		if ((z.x * z.x) + (z.y * z.y) > fractal->escape_value)
 		{
-			color = map(i, BLACK, WHITE, 0, fractal->iterations_defintion);
+			color = map(i, BLACK, WHITE, fractal->iterations_defintion);
 			my_pixel_put(x, y, &fractal->img, color);
 			return ;
 		}
 		i++;
 	}
-	//If MANDELBORT given itearations made
 	my_pixel_put(x, y, &fractal->img, HOT_PINK);
 }
 /*
@@ -87,6 +78,7 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
  * ***SQUARE***
  * 
 */
+
 void	fractal_render(t_fractal *fractal)
 {
 	int	x;
@@ -103,8 +95,6 @@ void	fractal_render(t_fractal *fractal)
 		}
 		y++;
 	}
-	mlx_put_image_to_window(fractal->mlx_connection,
-							  fractal->mlx_window,
-							  fractal->img.img_ptr,
-							  0, 0);
+	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window,
+		fractal->img.img_ptr, 0, 0);
 }

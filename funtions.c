@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 18:00:14 by camurill          #+#    #+#             */
-/*   Updated: 2024/05/17 14:22:22 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/28 14:27:42 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,25 +42,15 @@ void	ft_putstr_fd(char *s, int fd)
 	}
 }
 
-double	ft_dbatoi(char *str)
+static double	help_dbatoi(char *str)
 {
-	int		value;
 	long	number;
 	double	decimal;
 	double	dec;
 
-	value = 1;
 	number = 0;
 	decimal = 0;
 	dec = 1;
-	while ((*str >= '\t' && *str <= '\r') || *str == ' ')
-		str++;
-	if (*str == '-' || *str == '+')
-	{
-		if (*str == '-')
-			value *= -1;
-		str++;
-	}
 	while (*str != '.' && *str)
 	{
 		number = (number * 10) + (*str - '0');
@@ -74,5 +64,24 @@ double	ft_dbatoi(char *str)
 		decimal = decimal + (*str - '0') * dec;
 		str++;
 	}
-	return ((number + decimal) * value);
+	return (number + decimal);
+}
+
+double	ft_dbatoi(char *str)
+{
+	int		value;
+	double	nbr;
+
+	value = 1;
+	nbr = 0;
+	while ((*str >= '\t' && *str <= '\r') || *str == ' ')
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str == '-')
+			value *= -1;
+		str++;
+	}
+	nbr = help_dbatoi(str);
+	return (nbr * value);
 }

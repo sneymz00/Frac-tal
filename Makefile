@@ -1,3 +1,6 @@
+###############################################################################
+#									STANDARS								  #
+###############################################################################
 NAME 		= 		fractol
 RM 			= 		rm -f
 
@@ -14,7 +17,7 @@ CCFLAGS	= 		#-Wall -Wextra -Werror
 #									SRC										  #
 ###############################################################################
 
-SRC 	= 	main.c fractol.c funtions.c squeare_fractol.c math_fractal.c events.c #first.c 
+SRC 	= 	main.c fractol.c funtions.c squeare_fractol.c math_fractal.c events.c
 
 OBJ 	= 		$(SRC:.c=.o)
 OBJ2 	= 		$(SRC:.c=.d)

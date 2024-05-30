@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 15:36:04 by camurill          #+#    #+#             */
-/*   Updated: 2024/05/28 13:09:24 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:32:36 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ static void	choice_matrix(t_complex *z, t_complex *c, t_fractal *fractal)
 	{
 		c->x = z->x;
 		c->y = z->y;
-		z->x = 0.0;
-		z->y = 0.0;
 	}
 }
 
@@ -58,6 +56,8 @@ static void	handle_pixel(int x, int y, t_fractal *fractal)
 
 	i = 0;
 	z.x = (map(x, -2, +2, WIDTH) * fractal->zoom) + fractal->shift_x;
+	if (!ft_strncmp(fractal->name, "julia", 6))
+		z.x = (map(x, 2, -2, WIDTH) * fractal->zoom) + fractal->shift_x;
 	z.y = (map(y, +2, -2, HEIGHT) * fractal->zoom) + fractal->shift_y;
 	choice_matrix(&z, &c, fractal);
 	while (i < fractal->iterations_defintion)
@@ -84,16 +84,14 @@ void	fractal_render(t_fractal *fractal)
 	int	x;
 	int	y;
 
-	y = 0;
-	while (y < HEIGHT)
+	y = -1;
+	while (++y < HEIGHT)
 	{
-		x = 0;
-		while (x < WIDTH)
+		x = -1;
+		while (++x < WIDTH)
 		{
 			handle_pixel(x, y, fractal);
-			x++;
 		}
-		y++;
 	}
 	mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window,
 		fractal->img.img_ptr, 0, 0);

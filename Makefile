@@ -47,7 +47,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CCFLAGS) -MMD -Imlx -c $< -o $@
 
 clean:
-	$(RM) $(OBJ) $(BONUSOBJ)
+	$(RM) $(OBJ) $(BONUSOBJ) $(OBJ2)
 
 fclean: clean
 	$(RM) $(NAME) $(OBJ2)

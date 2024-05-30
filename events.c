@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:52:34 by camurill          #+#    #+#             */
-/*   Updated: 2024/05/29 22:00:46 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/30 14:19:57 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,14 @@
 
 int	close_funtion(t_fractal *fractal)
 {
-	mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
-	mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
-	free(fractal->mlx_connection);
+	if (fractal->img.img_ptr)
+	{
+		mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
+		//ee++afree(fractal);
+	}
+	if (fractal->mlx_window)
+		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
+	//free(fractal->mlx_connection);
 	exit(EXIT_SUCCESS);
 }
 

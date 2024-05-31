@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 15:52:34 by camurill          #+#    #+#             */
-/*   Updated: 2024/05/30 14:19:57 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/31 15:46:30 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,9 @@
 int	close_funtion(t_fractal *fractal)
 {
 	if (fractal->img.img_ptr)
-	{
 		mlx_destroy_image(fractal->mlx_connection, fractal->img.img_ptr);
-		//ee++afree(fractal);
-	}
 	if (fractal->mlx_window)
 		mlx_destroy_window(fractal->mlx_connection, fractal->mlx_window);
-	//free(fractal->mlx_connection);
 	exit(EXIT_SUCCESS);
 }
 
@@ -57,6 +53,11 @@ int	key_handler(int key, t_fractal *fractal)
 
 int	mouse_handler(int button, int x, int y, t_fractal *fractal)
 {
+	int	xy;
+	int	yx;
+
+	xy = x;
+	yx = y;
 	if (button == M_DOWN)
 		fractal->zoom *= 1.05;
 	else if (button == M_UP)

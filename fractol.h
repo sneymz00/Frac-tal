@@ -6,7 +6,7 @@
 /*   By: camurill <camurill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 14:31:03 by camurill          #+#    #+#             */
-/*   Updated: 2024/05/30 14:00:08 by camurill         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:22:22 by camurill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <math.h>
-//# include "Libreries/libft/libft.h"
 # include "Libreries/minilibx/mlx.h"
 
 # define ERROR_MESSAGE "Please enter \n\t\"./fractal mandelbrot\"  \

@@ -2,14 +2,16 @@
 #									STANDARS								  #
 ###############################################################################
 NAME 		= 		fractol
-RM 			= 		rm -f
+RM 			= 		rm -rf
 
 ###############################################################################
 #									COMPILER								  #
 ###############################################################################
 
 CC 		= 		gcc
-CCFLAGS	= 		#-Wall -Wextra -Werror
+CCFLAGS	= 		-Wall -Wextra -Werror
+OBJ_DIR =		objects/
+MLX     =		Libreries/minilibx/libmlx.a
 #LDFLAGS = 		-L./Libreries/ft_printf -ft_printf -L./Libreries/libft -libft \
 			    -L./Libreries/minilibx -minilibx -lm
 
@@ -18,8 +20,7 @@ CCFLAGS	= 		#-Wall -Wextra -Werror
 ###############################################################################
 
 SRC 	= 	main.c fractol.c funtions.c squeare_fractol.c math_fractal.c events.c
-
-OBJ 	= 		$(SRC:.c=.o)
+OBJ 	= 	$(patsubst %.c, $(OBJ_DIR)%.o, $(SRC))
 OBJ2 	= 		$(SRC:.c=.d)
 
 ###############################################################################
@@ -40,17 +41,20 @@ OBJ2 	= 		$(SRC:.c=.d)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(CC) $(CCFLAGS) -framework OpenGL -framework AppKit $(OBJ) libmlx.a -o $(NAME)
+$(NAME): $(OBJ) $(MLX)
+	$(CC) $(CCFLAGS) -framework OpenGL -framework AppKit $(OBJ) $(MLX) -o $(NAME)
 
-%.o: %.c Makefile fractol.h
+$(OBJ_DIR)%.o: %.c Makefile fractol.h
+	@mkdir -p $(OBJ_DIR)
+	make -C Libreries/minilibx &> /dev/null
 	$(CC) $(CCFLAGS) -MMD -Imlx -c $< -o $@
 
 clean:
-	$(RM) $(OBJ) $(BONUSOBJ) $(OBJ2)
+	$(RM) $(OBJ_DIR)
+	make -C Libreries/minilibx clean --no-print-directory
 
 fclean: clean
-	$(RM) $(NAME) $(OBJ2)
+	$(RM) $(NAME)
 
 re: fclean all
 
